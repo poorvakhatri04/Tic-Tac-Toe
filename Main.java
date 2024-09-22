@@ -1,11 +1,10 @@
 import java.util.Scanner;
 class Main{
-    public static void main(String args){
+    public static void main(String args[]){
         char board[][]=new char[3][3];
-        int m=board[0].length;
         int i,j;
-        for(i=0;i<board.length;i++){
-            for(j=0;j<m;j++);
+        for(i=0;i<3;i++){
+            for(j=0;j<3;j++)
             {
                 board[i][j]=' ';
             }
@@ -18,6 +17,7 @@ class Main{
             System.out.println("Player "+player+" enters:");
             int row=sc.nextInt();
             int col=sc.nextInt();
+            System.out.println();
             if(board[row][col]==' '){
                 board[row][col]=player;
                 gameOver=haveWon(board,player);
@@ -35,12 +35,12 @@ class Main{
         sc.close();
     }
     public static boolean haveWon(char[][]board, char player){
-        for(int i=0;i<board.length;i++){
+        for(int i=0;i<3;i++){
             if(board[i][0]==player && board[i][1]==player && board[i][2]==player){
                 return true;
             }
         }
-        for(int j=0;j<board[0].length;j++){
+        for(int j=0;j<3;j++){
             if(board[0][j]==player && board[1][j]==player && board[2][j]==player){
                 return true;
             }
@@ -53,8 +53,8 @@ class Main{
     }
     public static void printBoard(char[][] board){
         int row,col;
-        for(row=0;row<board.length;row++){
-            for(col=0; col< board[row].length; col++);
+        for(row=0;row<3;row++){
+            for(col=0; col<3; col++)
             {
                 System.out.print(board[row][col]+" | ");
             }
